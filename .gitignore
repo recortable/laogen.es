@@ -3,5 +3,7 @@ config/git.yml
 nbproject
 tmp
 log
+content
+
 
 
