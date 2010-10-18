@@ -1,0 +1,6 @@
+capistrano
+paperclipped
+settings
+sns
+spanish_language_pack
+wym_editor_filter
