@@ -5,11 +5,8 @@
 <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
   <head>
-    <meta charset="utf-8" />
-
-    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-         Remove this if you use the .htaccess -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
     <title><r:title /></title>
     <meta name="description" content="Laboratorio observatorio Andaluz de condiciones de trabajo desde una perspectiva de género" />
@@ -21,51 +18,80 @@
 
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/stylesheets/laogen.css">
-    <script src="/js/modernizr-1.6.min.js"></script>
   </head>
 
   <body>
 
     <div id="container">
       <div id="header">
+        <div class="dotted_yellow"></div>
         <div class="container">
           <a id="laogen" href="/"><img id="logo" src="/images/lix/logo.png" alt="logo" width="426" height="83" /></a>
           <r:nav root="/info" ids_for_links="true" depth="1" ids_for_lis="true" />
         </div>
+        <div class="dotted_yellow"></div>
       </div>
 
       <div id="main" class="container">
         <div id="site">
-          <div id="sections">
+          <div id="news">
+            <a id="news-link" class="sprite">Novedades</a>
+            <div id="news_preview">
+              <div id="news">
+              </div>
+            </div>
+          </div>
+
+          <div id="sections" class="sections <r:if_content part="Entrada">entrada</r:if_content>">
             <r:nav root="/" ids_for_links="true" depth="2" ids_for_lis="true" />
           </div>
         </div>
 
         <div id="content">
           <r:if_content part="Entrada">
-            Entrada!
+            <div id="circle" class="full sprite">Laogen - Laboratorio Observatorio Andaluz de Condiciones de Trabajo desde una perspectiva de Género</div>
           </r:if_content>
           <r:if_content part="Seccion">
-            Sección!
+            <div id="circle" class="<r:slug/> sprite">Laogen - Laboratorio Observatorio Andaluz de Condiciones de Trabajo desde una perspectiva de Género</div>
+          </r:if_content>
+          <r:if_content part="Contenido">
+            <div class="item">
+              <div class="item-bar">&nbsp;</div>
+              <h1><r:title /></h1>
+              <div class="item-content">
+                <r:content part="Contenido" />
+              </div>
+            </div>
           </r:if_content>
           <r:if_content part="Lista">
-            <div class="breadcrums">
-              <r:parent><r:if_content part="Seccion"><r:title /> > </r:if_content></r:parent><r:title />
+            <div class="breadcrums container">
+              <span><r:parent><r:if_content part="Seccion"><r:title /> > </r:if_content></r:parent><r:title /></span>
             </div>
             <div class="content">
-              sección
-              <r:children>
-                <div id="item">asdfsad<r:content /></div>
-              </r:children>
+              <r:page>
+                <r:children:each>
+                  <div class="item">
+                    <div class="item-bar">&nbsp;</div>
+                    <div class="item-head container">
+                      <span class="name">Curso</span>
+                      <span class="date">13.09.2010-07.11.2010</span>
+                    </div>
+                    <h1><r:title /></h1>
+                    <div class="item-content">
+                      <r:content part="Contenido" />
+                    </div>
+                  </div>
+                </r:children:each>
+              </r:page>
             </div>
           </r:if_content>
         </div>
       </div>
 
       <div id="footer">
-        <div class="puntos_amarillos"></div>
+        <div class="dotted_yellow"></div>
         <img id="partners" src="/images/lix/entidades.png" alt="Entidades colaboradoras" width="962" height="75" />
-        <div class="puntos_amarillos"></div>
+        <div class="dotted_yellow"></div>
 
       </div>
     </div> <!--! end of #container -->
@@ -74,19 +100,9 @@
     <!-- Javascript at the bottom for fast page loading -->
 
     <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
     <script type="text/javascript">!window.jQuery && document.write(unescape('%3Cscript src="/js/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
-
-
-    <!-- scripts concatenated and minified via ant build script-->
     <script type="text/javascript" src="/js/plugins.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
-    <!-- end concatenated and minified scripts-->
-
-
-    <!--[if lt IE 7 ]>
-      <script src="/js/dd_belatedpng.js"></script>
-      <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
-    <![endif]-->
   </body>
 </html>
