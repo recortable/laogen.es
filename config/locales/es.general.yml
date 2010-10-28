@@ -1,0 +1,5 @@
+es:
+  navigation_tags:
+    include_in_navigation: 'Mostrar en secciones'
+    "yes": 'Si'
+    "no": 'No'

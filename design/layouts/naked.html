@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+         Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title><r:title /></title>
+    <meta name="description" content="Laboratorio observatorio Andaluz de condiciones de trabajo desde una perspectiva de género" />
+    <meta name="author" content="Laboratorio Observatorio Andaluz Género" />
+    <meta name="keywords" content="Genero Trabajo" />
+
+    <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/laogen.css">
+    <script src="/js/modernizr-1.6.min.js"></script>
+  </head>
+
+  <body>
+
+    <div id="container">
+      <div id="header">
+        <div class="container">
+          <a id="laogen" href="/"><img id="logo" src="/images/lix/logo.png" alt="logo" width="426" height="83" /></a>
+          <r:nav root="/info" ids_for_links="true" depth="1" ids_for_lis="true" />
+        </div>
+      </div>
+
+      <div id="main" class="container">
+        <div id="site">
+          <div id="sections">
+            <r:nav root="/" ids_for_links="true" depth="2" ids_for_lis="true" />
+          </div>
+        </div>
+
+        <div id="content">
+          <r:if_content part="Entrada">
+            Entrada!
+          </r:if_content>
+          <r:if_content part="Seccion">
+            Sección!
+          </r:if_content>
+          <r:if_content part="Lista">
+            <div class="breadcrums">
+              <r:parent><r:if_content part="Seccion"><r:title /> > </r:if_content></r:parent><r:title />
+            </div>
+            <div class="content">
+              sección
+              <r:children>
+                <div id="item">asdfsad<r:content /></div>
+              </r:children>
+            </div>
+          </r:if_content>
+        </div>
+      </div>
+
+      <div id="footer">
+        <div class="puntos_amarillos"></div>
+        <img id="partners" src="/images/lix/entidades.png" alt="Entidades colaboradoras" width="962" height="75" />
+        <div class="puntos_amarillos"></div>
+
+      </div>
+    </div> <!--! end of #container -->
+
+
+    <!-- Javascript at the bottom for fast page loading -->
+
+    <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+    <script type="text/javascript">!window.jQuery && document.write(unescape('%3Cscript src="/js/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
+
+
+    <!-- scripts concatenated and minified via ant build script-->
+    <script type="text/javascript" src="/js/plugins.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+    <!-- end concatenated and minified scripts-->
+
+
+    <!--[if lt IE 7 ]>
+      <script src="/js/dd_belatedpng.js"></script>
+      <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+    <![endif]-->
+  </body>
+</html>

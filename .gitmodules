@@ -16,3 +16,9 @@
 [submodule "vendor/extensions/sns"]
 	path = vendor/extensions/sns
 	url = git://github.com/radiant/radiant-sns-extension.git
+[submodule "vendor/extensions/reorder"]
+	path = vendor/extensions/reorder
+	url = git@github.com:danigb/radiant-reorder-extension.git
+[submodule "vendor/extensions/navigation_tags"]
+	path = vendor/extensions/navigation_tags
+	url = git@github.com:danigb/navigation_tags.git
