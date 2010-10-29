@@ -15,7 +15,7 @@
 
     <!--  Mobile viewport optimized: j.mp/bplateviewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script -->
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/stylesheets/laogen.css">
   </head>
@@ -35,18 +35,28 @@
       <div id="main" class="container">
         <div id="site">
           <div id="news">
-            <a href="/novedades" id="news-link" class="sprite">Novedades</a>
-            <div id="display">
-              <div id="news_box">
-                <div id="news_content">&nbsp;
+            <r:if_url matches="/novedades">
+              <a href="/novedades" id="news_link" class="sprite active">Novedades</a>
+            </r:if_url>
+            <r:unless_url matches="/novedades">
+              <a href="/novedades" id="news_link" class="sprite">Novedades</a>
+              <div id="display">
+                <div id="news_box">
+                  <ul id="news_content">
+                    <r:find url="/novedades">
+                      <r:children:each>
+                        <li><r:title /></li>
+                      </r:children:each>
+                    </r:find>
+                  </ul>
+                  <a id="news_more" href="#">Leer más &gt;&gt;&gt;</a>
                 </div>
-                <a id="news_more" href="#">Leer más &gt;&gt;&gt;</a>
+                <div id="news_controls" class="container">
+                  <a id="news_prev" href="javascript:void(0);">Noticia anterior</a>
+                  <a id="news_next" href="javascript:void(0);">Noticia siguiente</a>
+                </div>
               </div>
-              <div id="news_controls" class="container">
-                <a id="news_prev" href="javascript:void(0);">Noticia anterior</a>
-                <a id="news_next" href="javascript:void(0);">Noticia siguiente</a>
-              </div>
-            </div>
+            </r:unless_url>
           </div>
 
           <div id="sections" class="sections <r:if_content part="Entrada">entrada</r:if_content>">
@@ -56,10 +66,12 @@
 
         <div id="content">
           <r:if_content part="Entrada">
-            <div id="circle" class="full sprite">Laogen - Laboratorio Observatorio Andaluz de Condiciones de Trabajo desde una perspectiva de Género</div>
+            <img id="circulos" alt="Laogen - Laboratorio Observatorio Andaluz de Condiciones de Trabajo desde una perspectiva de Género"
+                 src="/images/lix/circulos_todos_lineas.png" width="526" height="461"/>
           </r:if_content>
           <r:if_content part="Seccion">
-            <div id="circle" class="<r:slug/> sprite">Laogen - Laboratorio Observatorio Andaluz de Condiciones de Trabajo desde una perspectiva de Género</div>
+            <img id="circulos" alt="Laogen - Laboratorio Observatorio Andaluz de Condiciones de Trabajo desde una perspectiva de Género"
+                 src="/images/lix/circulos_<r:slug/>_linea.png" width="526" height="461"/>
           </r:if_content>
           <r:if_content part="Contenido">
             <div class="item">
@@ -116,7 +128,7 @@
     <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
     <script type="text/javascript">!window.jQuery && document.write(unescape('%3Cscript src="/js/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
-    <script type="text/javascript" src="/js/plugins.js"></script>
-    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/javascripts/plugins.js"></script>
+    <script type="text/javascript" src="/javascripts/script.js"></script>
   </body>
 </html>

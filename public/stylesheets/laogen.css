@@ -182,6 +182,7 @@ a, a:active, a:visited {background-color: #FFE800; color: #333333; text-decorati
 a:hover {text-decoration: underline;}
 
 #container {width: 980px; margin: 0 auto;}
+html.ie6 #container {width: 1000px;}
 .container {width: 100%; overflow: hidden;}
 .dotted_yellow {width: 100%; clear: both; height: 6px; margin: 3px 0;
                 border-top: 2px dotted #333333;}
@@ -193,6 +194,7 @@ a:hover {text-decoration: underline;}
 
 /** LINKS **/
 #header ul {float: right; margin-right: -3px}
+html.ie6 #header ul {margin-left: -3px;}
 #header ul li {display: block; float: left;}
 #header ul li a {display: block; overflow: hidden; text-indent: -1000px; height: 15px;
                  background-image: url('/images/lix/links.png'); background-repeat: no-repeat; }
@@ -207,12 +209,14 @@ a#link_contacto {width: 70px; background-position: -378px 0;}
 /* MAIN */
 #content {}
 #site {width: 439px; float: left;}
+html.ie6 #site {width: 430px;}
 
 /** NEWS **/
 #news {height: 157px; margin-bottom: 3px;}
-#news-link {float: left; width: 131px; height: 131px; margin-top: 5px;
+#news_link {float: left; width: 131px; height: 131px; margin-top: 5px;
             background-image: url('/images/lix/novedades.png'); background-repeat: no-repeat;}
-a#news-link:hover {background-position: 0 -131px;}
+
+a#news_link.active, a#news_link:hover {background-position: 0 -131px;}
 #display {margin-left: 140px; height: 157px; }
 #news_box {border: 1px solid #333333; height: 130px;}
 #news_content {height: 110px;}
@@ -226,18 +230,23 @@ a#news_prev:hover { background-position: 0 -154px; width: 21px; height: 21px; }
 a#news_next:hover { background-position: 0 -110px; width: 21px; height: 21px;}
 
 /** CIRCLES **/
-#circle {width: 526px; height: 461px; margin: 84px 0  0 -20px; background-position: 0px 0;}
-#circle.full {background: url('/images/lix/circulos_todos_lineas.png') no-repeat;}
-#circle.actualidad {background: url('/images/lix/circulos_actualidad_linea.png') no-repeat;}
-#circle.bases-documentales {background: url('/images/lix/circulos_bases_linea.png') no-repeat;}
-#circle.responsabilidad-social-corporativa {background: url('/images/lix/circulos_rsc_linea.png') no-repeat;}
-#circle.normativa-y-jurisprudencia {background: url('/images/lix/circulos_normativa_linea.png') no-repeat;}
-#circle.negociacion-colectiva {background: url('/images/lix/circulos_negociacion_linea.png') no-repeat;}
+#circulos {margin: 84px 0 0 -20px;}
+
+#circle {width: 526px; height: 461px; margin: 84px 0  0 -20px; background-position: 0px 0; background-repeat: no-repeat;}
+html.ie6 #circle {margin-left: 0;}
+#circle.full {background-image: url('/images/lix/circulos_todos_lineas.png');}
+div.actualidad#circle {background-image: url('/images/lix/circulos_actualidad_linea.png');}
+#circle.bases-documentales {background-image: url('/images/lix/circulos_bases_linea.png');}
+#circle.responsabilidad-social-corporativa {background-image: url('/images/lix/circulos_rsc_linea.png');}
+#circle.normativa-y-jurisprudencia {background-image: url('/images/lix/circulos_normativa_linea.png');}
+#circle.boletines-de-informacion {background-image: url('/images/lix/circulos_todos_lineas.png');}
+#circle.negociacion-colectiva {background-image: url('/images/lix/circulos_negociacion_linea.png');}
 
 /** SECTIONS **/
 
-#sections > ul {margin: 0 0 0 0;}
-#sections > ul > li > a {display: block; width: 439px; height: 61px; overflow: hidden; text-indent: -10000px;
+#sections ul {margin: 0 0 0 0;}
+li.depth-1 ul {margin-left: 20px;}
+#sections li.depth-1 a {display: block; width: 439px; height: 61px; overflow: hidden; text-indent: -10000px;
                          background-image: url('/images/lix/secciones_noactivo_nolineas.png'); background-repeat: no-repeat;  }
 #sections li {list-style-image: none; list-style-position: inside; list-style-type: none;}
 
@@ -245,44 +254,48 @@ a#link_actualidad {background-position: 0 0px;}
 a#link_bases-documentales {background-position: 0 -61px;}
 a#link_normativa-y-jurisprudencia {background-position: 0 -122px;}
 a#link_negociacion-colectiva{background-position: 0 -183px;}
-a#link_boletines-de-informacin {background-position: 0 -244px;}
+a#link_boletines-de-informacion {background-position: 0 -244px;}
 a#link_responsabilidad-social-corporativa {background-position: 0 -305px;}
 
+#sections  li.depth-1  a:hover {background-image: url('/images/lix/secciones_activo_nolineas.png');}
+#sections.entrada li.depth-1 a:hover {background-image: url('/images/lix/secciones_activo_lineas.png');}
 
 
-#sections > ul > li.current > a {background-image: url('/images/lix/secciones_activo_lineas.png'); }
-#sections > ul li.parent_of_current > a {background-image: url('/images/lix/secciones_activo_nolineas.png'); }
-#sections.entrada > ul > li > a {background-image: url('/images/lix/secciones_noactivo_lineas.png'); }
+#sections li.depth-1.current  a {background-image: url('/images/lix/secciones_activo_lineas.png'); }
+#sections li.depth-1.parent_of_current  a {background-image: url('/images/lix/secciones_activo_nolineas.png'); }
+#sections.entrada  li.depth-1 a {background-image: url('/images/lix/secciones_noactivo_lineas.png'); }
+#sections.entrada.disable li.depth-1  a {background-image: url('/images/lix/secciones_noactivo_nolineas.png'); }
+#sections.entrada.disable li.depth-1 a:hover {background-image: url('/images/lix/secciones_activo_lineas.png');}
 
 /** SUB SECTIONS */
-#sections >ul > li > ul a {display: block; width: 314px; overflow: hidden; text-indent: -10000px;
+#sections li.depth-1 li.depth-0 a {display: block; width: 314px; overflow: hidden; text-indent: -10000px;
                            background-image: url('/images/lix/subsecciones_noactivo.png'); background-repeat: no-repeat;
                            margin: 6px 0;}
-#sections > ul > li > ul > li.current a, #sections > ul > li > ul > li > a:hover {
+#sections li.depth-1 li.depth-0.current a, #sections li.depth-1 li.depth-0 a:hover {
   background-image: url('/images/lix/subsecciones_activo.png');}
 
 /** actualidad **/
-a#link_eventos {background-position: 0 -20px;  height: 17px;}
-a#link_noticias-de-actualidad {background-position: 0 -56px;  height: 17px;}
+#sections li.depth-1 li.depth-0 #link_eventos {background-position: 0 -20px;  height: 17px;}
+#sections li.depth-1 li.depth-0 #link_noticias-de-actualidad {background-position: 0 -56px;  height: 17px;}
 /** bases documentales **/
-a#link_informes-y-estudio {background-position: 0 -92px; height: 17px;}
-a#link_guias-y-documentos-divulgativos {background-position: 0 -128px;  height: 17px;}
-a#link_protocolos-de-actuacion {background-position: 0 -164px; height: 35px;}
-a#link_bibliografia {background-position: 0 -218px;  height: 17px;}
-a#link_enlaces {background-position: 0 -254px;  height: 17px;}
+#sections li.depth-1 li.depth-0 #link_informes-y-estudio {background-position: 0 -92px; height: 17px;}
+#sections li.depth-1 li.depth-0 #link_guias-y-documentos-divulgativos {background-position: 0 -128px;  height: 17px;}
+#sections li.depth-1 li.depth-0 #link_protocolos-de-actuacion {background-position: 0 -164px; height: 35px;}
+#sections li.depth-1 li.depth-0 #link_bibliografia {background-position: 0 -218px;  height: 17px;}
+#sections li.depth-1 li.depth-0 #link_enlaces {background-position: 0 -254px;  height: 17px;}
 /* normativa y jurisprudencia */
-a#link_normativa {background-position: 0 -290px;  height: 17px;}
-a#link_jurisprudencia {background-position: 0 -326px;  height: 17px;}
+#sections li.depth-1 li.depth-0 #link_normativa {background-position: 0 -290px;  height: 17px;}
+#sections li.depth-1 li.depth-0 #link_jurisprudencia {background-position: 0 -326px;  height: 17px;}
 /* negociación colectiva */
-a#link_clausulas-de-convenios-colectivos {background-position: 0 -362px;  height: 53px;}
-a#link_planes-de-igualdad-en-empresas {background-position: 0 -434px;  height: 17px;}
-a#link_acuerdos-en-materia-de-igualdad {background-position: 0 -470px;  height: 35px;}
-a#link_vii-acuerdo-de-concertacion {background-position: 0 -524px;  height: 35px;}
+#sections li.depth-1 li.depth-0 #link_clausulas-de-convenios-colectivos {background-position: 0 -362px;  height: 53px;}
+#sections li.depth-1 li.depth-0 #link_planes-de-igualdad-en-empresas {background-position: 0 -434px;  height: 17px;}
+#sections li.depth-1 li.depth-0 #link_acuerdos-en-materia-de-igualdad {background-position: 0 -470px;  height: 35px;}
+#sections li.depth-1 li.depth-0 #link_vii-acuerdo-de-concertacion {background-position: 0 -524px;  height: 35px;}
 /* rsc */
-a#link_libros {background-position: 0 -578px;  height: 17px;}
-a#link_articulos {background-position: 0 -614px;  height: 17px;}
-a#link_portales {background-position: 0 -650px;  height: 17px;}
-a#link_congresos {background-position: 0 -686px;  height: 17px;}
+#sections li.depth-1 li.depth-0 a#link_libros {background-position: 0 -578px;  height: 17px;}
+#sections li.depth-1 li.depth-0 a#link_articulos {background-position: 0 -614px;  height: 17px;}
+#sections li.depth-1 li.depth-0 a#link_portales {background-position: 0 -650px;  height: 17px;}
+#sections li.depth-1 li.depth-0 a#link_congresos {background-position: 0 -686px;  height: 17px;}
 
 /** CONTENT **/
 #content {width: 506px; margin-left: 460px;}
