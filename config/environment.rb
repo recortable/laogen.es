@@ -13,6 +13,11 @@ Radiant::Initializer.run do |config|
   # Skip frameworks you're not going to use (only works if using vendor/rails).
   # To use Rails without a database, you must remove the Active Record framework
   config.frameworks -= [ :action_mailer ]
+  DATABASE_MAILER_COLUMNS = {
+    :name => :string,
+    :message => :text,
+    :email => :string
+  }
 
   # Only load the extensions named here, in the order given. By default all
   # extensions in vendor/extensions are loaded, in alphabetical order. :all
@@ -22,7 +27,7 @@ Radiant::Initializer.run do |config|
   # By default, only English translations are loaded. Remove any of these from
   # the list below if you'd like to provide any of the supported languages
   config.extensions -= [:dutch_language_pack, :french_language_pack, :german_language_pack,
-                        :italian_language_pack, :japanese_language_pack, :russian_language_pack]
+    :italian_language_pack, :japanese_language_pack, :russian_language_pack]
 
   # Your secret key for verifying cookie session data integrity.
   # If you change this key, all old sessions will become invalid!
