@@ -44,7 +44,7 @@ abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
 /* tables still need cellspacing="0" in the markup */
 table { border-collapse:collapse; border-spacing:0; }
 
-hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+hr { display:block; height:1px; border:0; border-top:1px dotted black; margin:1em 0; padding:0; }
 
 input, select { vertical-align:middle; }
 
@@ -169,7 +169,7 @@ button {  width: auto; overflow: visible; }
 .sprite-derecha{ background-position: 0 -88px; width: 21px; height: 21px; }
 .sprite-derecha_ac{ background-position: 0 -110px; width: 21px; height: 21px; }
 .sprite-izquierda{ background-position: 0 -132px; width: 21px; height: 21px; }
-.sprite-izquierda_ac{ background-position: 0 -154px; width: 21px; height: 21px; } 
+.sprite-izquierda_ac{ background-position: 0 -154px; width: 21px; height: 21px; }
 
 
 /* Primary Styles
@@ -219,7 +219,6 @@ html.ie6 #site {width: 430px;}
 a#news_link.active, a#news_link:hover {background-position: 0 -131px;}
 #display {margin-left: 140px; height: 157px; }
 #news_box {border: 1px solid #333333; height: 130px;}
-#news_content {height: 110px;}
 #news_more {display: block; border-top: 1px dotted #333333;  text-align: right; padding: 2px 5px 0 0; text-decoration: none;}
 #news_more:hover {text-decoration: underline;}
 #news_controls a {display: block; overflow: hidden; text-indent: -1000px; margin-top: 2px;
@@ -228,6 +227,12 @@ a#news_prev {float: left; background-position: 0 -132px; width: 21px; height: 21
 a#news_next {float: right; background-position: 0 -88px; width: 21px; height: 21px; }
 a#news_prev:hover { background-position: 0 -154px; width: 21px; height: 21px; }
 a#news_next:hover { background-position: 0 -110px; width: 21px; height: 21px;}
+
+#news_content {height: 95px; margin: 0;}
+#news_content li {list-style-image: none; list-style-position: inside; list-style-type: none; margin: 1em 1em 0 1em;}
+#news_content li span.date {font-size: 16px;}
+#news_content h1 {font-size: 16px; text-transform: uppercase; font-weight: normal; margin-top: 13px;}
+
 
 /** CIRCLES **/
 #circulos {margin: 84px 0 0 -20px;}
@@ -247,7 +252,7 @@ div.actualidad#circle {background-image: url('/images/lix/circulos_actualidad_li
 #sections ul {margin: 0 0 0 0;}
 li.depth-1 ul {margin-left: 20px;}
 #sections li.depth-1 a {display: block; width: 439px; height: 61px; overflow: hidden; text-indent: -10000px;
-                         background-image: url('/images/lix/secciones_noactivo_nolineas.png'); background-repeat: no-repeat;  }
+                        background-image: url('/images/lix/secciones_noactivo_nolineas.png'); background-repeat: no-repeat;  }
 #sections li {list-style-image: none; list-style-position: inside; list-style-type: none;}
 
 a#link_actualidad {background-position: 0 0px;}
@@ -266,19 +271,24 @@ a#link_responsabilidad-social-corporativa {background-position: 0 -305px;}
 #sections.entrada  li.depth-1 a {background-image: url('/images/lix/secciones_noactivo_lineas.png'); }
 #sections.entrada.disable li.depth-1  a {background-image: url('/images/lix/secciones_noactivo_nolineas.png'); }
 #sections.entrada.disable li.depth-1 a:hover {background-image: url('/images/lix/secciones_activo_lineas.png');}
+/** Boletines no tiene subsecciones */
+#sections li.depth-1.current a#link_boletines-de-informacion {background-image: url('/images/lix/secciones_activo_nolineas.png');}
 
 /** SUB SECTIONS */
 #sections li.depth-1 li.depth-0 a {display: block; width: 314px; overflow: hidden; text-indent: -10000px;
-                           background-image: url('/images/lix/subsecciones_noactivo.png'); background-repeat: no-repeat;
-                           margin: 6px 0;}
-#sections li.depth-1 li.depth-0.current a, #sections li.depth-1 li.depth-0 a:hover {
+                                   background-image: url('/images/lix/subsecciones_noactivo.png'); background-repeat: no-repeat;
+                                   margin: 6px 0;}
+#sections li.depth-1 li.depth-0.current a, #sections li.depth-1 li.depth-0 a:hover,
+#sections li.depth-1 li.depth-0.parent_of_current a {
   background-image: url('/images/lix/subsecciones_activo.png');}
+
+
 
 /** actualidad **/
 #sections li.depth-1 li.depth-0 #link_eventos {background-position: 0 -20px;  height: 17px;}
-#sections li.depth-1 li.depth-0 #link_noticias-de-actualidad {background-position: 0 -56px;  height: 17px;}
+#sections li.depth-1 li.depth-0 #link_noticias-de-interes {background-position: 0 -56px;  height: 17px;}
 /** bases documentales **/
-#sections li.depth-1 li.depth-0 #link_informes-y-estudio {background-position: 0 -92px; height: 17px;}
+#sections li.depth-1 li.depth-0 #link_informes-y-estudios {background-position: 0 -92px; height: 17px;}
 #sections li.depth-1 li.depth-0 #link_guias-y-documentos-divulgativos {background-position: 0 -128px;  height: 17px;}
 #sections li.depth-1 li.depth-0 #link_protocolos-de-actuacion {background-position: 0 -164px; height: 35px;}
 #sections li.depth-1 li.depth-0 #link_bibliografia {background-position: 0 -218px;  height: 17px;}
@@ -300,20 +310,33 @@ a#link_responsabilidad-social-corporativa {background-position: 0 -305px;}
 /** CONTENT **/
 #content {width: 506px; margin-left: 460px;}
 
-.breadcrums span {
+
+.outside_label {}
+.outside_label span {
+  font-size: 14px; letter-spacing: 0.5pt;
   display: block; float: left;
   padding: 3px 7px 3px 7px; background-color: #333333; color: #FFE800; font-weight: bold;
 }
+
+.info h1 {float: none;}
+
 .item {
   background-color: #F6F6F6;
-  margin: 0 0 20px 0; padding: 20px 15px;
+  margin: 0 0 20px 0; padding: 25px;
+  line-height: 15pt;
+  color: black;
 }
+.item hr { display:block; height:1px; border:0; border-top:1px dotted black; margin:1em 0; padding:0; }
+.item p {margin-bottom: 1em;}
+.item h2 {margin-bottom: 1em;}
+.item h3 {text-transform: uppercase; margin-top: 1em;}
+
 .item-bar {background-color: #333333; height: 8px; margin-bottom: 4px; border: 1px solid #333333;}
 .item-head {border-top: 2px dotted #333333; padding: 2px 0;}
 .item-head .name {float: left;}
 .item-head .date {float: right;}
 .item > h1 {text-transform: uppercase; font-weight: bold; padding: 1em 0 2px 0;
-  border-bottom: 2px dotted #333333; margin: 0 0 0.5em 0; font-size: 120%;}
+            border-bottom: 2px dotted #333333; margin: 0 0 0.5em 0; font-size: 120%;}
 
 .item_pdfs {margin: -10px 0 20px 0; border: 1px solid #333333; padding: 3px 5px;}
 .item_pdfs a {color: #333333; display: block; text-align: right; text-decoration: none; }
@@ -322,8 +345,14 @@ a#link_responsabilidad-social-corporativa {background-position: 0 -305px;}
 /** FOOTER **/
 #footer {margin: 50px 0 10px 0;}
 
-
-
+.info form p {width: 100%; overflow: hidden;}
+.info form {width: 260px;}
+.info form label {display: block;}
+form input[type=text], textarea  {width:100%; padding: 5px 0 5px 3px; font-family: Courier, "Courier New", monospace;
+                                  font-size: 13px; background-color: #FFE800; border: 0;}
+form input[type=submit] {float: right; background-color: #333333;
+                         font-family: Courier, "Courier New", monospace; font-size: 13px;
+border: 0px solid #333333; color: #FFE800; padding: 3px 5px; }
 
 
 /*
@@ -368,4 +397,3 @@ a#link_responsabilidad-social-corporativa {background-position: 0 -305px;}
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3{ page-break-after: avoid; }
 }
-

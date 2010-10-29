@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script -->
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/stylesheets/laogen.css">
+    <link rel="stylesheet" href="/css/laogen.css">
   </head>
 
   <body>
@@ -45,7 +45,10 @@
                   <ul id="news_content">
                     <r:find url="/novedades">
                       <r:children:each>
-                        <li><r:title /></li>
+                        <li>
+                          <span class="date"><r:content part="Fecha" /></span>
+                          <h1><r:title /></h1>
+                        </li>
                       </r:children:each>
                     </r:find>
                   </ul>
@@ -65,25 +68,69 @@
         </div>
 
         <div id="content">
+          <!-- entrada -->
           <r:if_content part="Entrada">
             <img id="circulos" alt="Laogen - Laboratorio Observatorio Andaluz de Condiciones de Trabajo desde una perspectiva de Género"
                  src="/images/lix/circulos_todos_lineas.png" width="526" height="461"/>
           </r:if_content>
+
+          <!-- sección: círculos -->
           <r:if_content part="Seccion">
             <img id="circulos" alt="Laogen - Laboratorio Observatorio Andaluz de Condiciones de Trabajo desde una perspectiva de Género"
                  src="/images/lix/circulos_<r:slug/>_linea.png" width="526" height="461"/>
           </r:if_content>
+
+          <!-- contenido: un sólo item -->
           <r:if_content part="Contenido">
+            <div class="outside_label container">
+              <span><r:parent><r:title /></r:parent> &gt; <r:title /></span>
+            </div>
             <div class="item">
               <div class="item-bar">&nbsp;</div>
-              <h1><r:title /></h1>
+              <div class="item-head container">
+                <r:if_content part="Tipo">
+                  <span class="name"><r:content part="Tipo" /></span>
+                </r:if_content>
+                <r:if_content part="Autorxs">
+                  <span class="name"><r:content part="Autorxs" /></span>
+                </r:if_content>
+                <span class="date"><r:content part="Fecha" /></span>
+              </div>
+              <!--<h1><r:title /></h1>-->
               <div class="item-content">
+                <br/>
                 <r:content part="Contenido" />
               </div>
             </div>
+            <r:if_content part="Enlace">
+              <div class="item_pdfs">
+                <a href="<r:content part="Enlace" />">Más información &gt;&gt;&gt;</a>
+              </div>
+            </r:if_content>
+            <r:if_assets extensions="pdf">
+              <div class="item_pdfs">
+                <r:assets:each extensions="pdf">
+                  <a href="<r:url />">Descargar pdf &gt;&gt;&gt;</a>
+                </r:assets:each>
+              </div>
+            </r:if_assets>
           </r:if_content>
+
+          <!-- info: con la cosa fuera -->
+          <r:if_content part="Info">
+            <div class="info">
+              <div class="outside_label container">
+                <span><r:title /></span>
+              </div>
+              <div class="item">
+                <r:content part="Info" />
+              </div>
+            </div>
+          </r:if_content>
+
+          <!-- lista -->
           <r:if_content part="Lista">
-            <div class="breadcrums container">
+            <div class="outside_label container">
               <span><r:parent><r:if_content part="Seccion"><r:title /> > </r:if_content></r:parent><r:title /></span>
             </div>
             <div class="content">
@@ -92,14 +139,27 @@
                   <div class="item">
                     <div class="item-bar">&nbsp;</div>
                     <div class="item-head container">
-                      <span class="name">Curso</span>
-                      <span class="date">13.09.2010-07.11.2010</span>
+                      <r:if_content part="Tipo">
+                        <span class="name"><r:content part="Tipo" /></span>
+                      </r:if_content>
+                      <r:if_content part="Autorxs">
+                        <span class="name"><r:content part="Autorxs" /></span>
+                      </r:if_content>
+                      <span class="date"><r:content part="Fecha" /></span>
                     </div>
                     <h1><r:title /></h1>
                     <div class="item-content">
                       <r:content part="Contenido" />
                     </div>
+                    <r:unless_content part="Contenido">
+                      <br/>
+                    </r:unless_content>
                   </div>
+                  <r:if_content part="Enlace">
+                    <div class="item_pdfs">
+                      <a href="<r:content part="Enlace" />">Más información &gt;&gt;&gt;</a>
+                    </div>
+                  </r:if_content>
                   <r:if_assets extensions="pdf">
                     <div class="item_pdfs">
                       <r:assets:each extensions="pdf">
