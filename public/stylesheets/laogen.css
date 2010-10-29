@@ -161,6 +161,16 @@ button {  width: auto; overflow: visible; }
 /* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
 .clearfix { zoom: 1; }
 
+/** SPRITES **/
+.sprite-abajo{ background-position: 0 0; width: 21px; height: 21px; }
+.sprite-abajo_ac{ background-position: 0 -22px; width: 21px; height: 21px; }
+.sprite-arriba{ background-position: 0 -44px; width: 21px; height: 21px; }
+.sprite-arriba_ac{ background-position: 0 -66px; width: 21px; height: 21px; }
+.sprite-derecha{ background-position: 0 -88px; width: 21px; height: 21px; }
+.sprite-derecha_ac{ background-position: 0 -110px; width: 21px; height: 21px; }
+.sprite-izquierda{ background-position: 0 -132px; width: 21px; height: 21px; }
+.sprite-izquierda_ac{ background-position: 0 -154px; width: 21px; height: 21px; } 
+
 
 /* Primary Styles
    Author: Dani
@@ -168,7 +178,8 @@ button {  width: auto; overflow: visible; }
 
 html {background-color: #FFE800; color: #333333; }
 body {font-family: Courier, "Courier New", monospace;}
-a, a:active, a:visited {background-color: #FFE800; color: #333333; }
+a, a:active, a:visited {background-color: #FFE800; color: #333333; text-decoration: none; }
+a:hover {text-decoration: underline;}
 
 #container {width: 980px; margin: 0 auto;}
 .container {width: 100%; overflow: hidden;}
@@ -179,19 +190,43 @@ a, a:active, a:visited {background-color: #FFE800; color: #333333; }
 /** HEADER **/
 #header {margin: 10px auto;}
 #logo {display: block; float: left;}
-#header ul {}
+
+/** LINKS **/
+#header ul {float: right; margin-right: -3px}
 #header ul li {display: block; float: left;}
+#header ul li a {display: block; overflow: hidden; text-indent: -1000px; height: 15px;
+                 background-image: url('/images/lix/links.png'); background-repeat: no-repeat; }
+a#link_quien {width: 101px; background-position: 0 0;}
+a#link_organizacion {width: 207px; background-position: -101px 0;}
+a#link_mapa-web {width: 70px; background-position: -308px 0;}
+a#link_contacto {width: 70px; background-position: -378px 0;}
+#header ul a:hover {height: 17px;}
+#header li.current a {height: 17px;}
+
 
 /* MAIN */
 #content {}
 #site {width: 439px; float: left;}
 
 /** NEWS **/
-#news {height: 150px;}
-#news-link {}
+#news {height: 157px; margin-bottom: 3px;}
+#news-link {float: left; width: 131px; height: 131px; margin-top: 5px;
+            background-image: url('/images/lix/novedades.png'); background-repeat: no-repeat;}
+a#news-link:hover {background-position: 0 -131px;}
+#display {margin-left: 140px; height: 157px; }
+#news_box {border: 1px solid #333333; height: 130px;}
+#news_content {height: 110px;}
+#news_more {display: block; border-top: 1px dotted #333333;  text-align: right; padding: 2px 5px 0 0; text-decoration: none;}
+#news_more:hover {text-decoration: underline;}
+#news_controls a {display: block; overflow: hidden; text-indent: -1000px; margin-top: 2px;
+                  background-image: url('/images/lix/arrows.png'); background-repeat: no-repeat;}
+a#news_prev {float: left; background-position: 0 -132px; width: 21px; height: 21px;}
+a#news_next {float: right; background-position: 0 -88px; width: 21px; height: 21px; }
+a#news_prev:hover { background-position: 0 -154px; width: 21px; height: 21px; }
+a#news_next:hover { background-position: 0 -110px; width: 21px; height: 21px;}
 
 /** CIRCLES **/
-#circle {width: 526px; height: 461px; margin-top: 74px; background-position: 0px 0;}
+#circle {width: 526px; height: 461px; margin: 84px 0  0 -20px; background-position: 0px 0;}
 #circle.full {background: url('/images/lix/circulos_todos_lineas.png') no-repeat;}
 #circle.actualidad {background: url('/images/lix/circulos_actualidad_linea.png') no-repeat;}
 #circle.bases-documentales {background: url('/images/lix/circulos_bases_linea.png') no-repeat;}
@@ -221,9 +256,10 @@ a#link_responsabilidad-social-corporativa {background-position: 0 -305px;}
 
 /** SUB SECTIONS */
 #sections >ul > li > ul a {display: block; width: 314px; overflow: hidden; text-indent: -10000px;
-                              background-image: url('/images/lix/subsecciones_noactivo.png'); background-repeat: no-repeat;
-margin: 3px 0;}
-#sections > ul > li > ul > li.current a {background-image: url('/images/lix/subsecciones_activo.png');}
+                           background-image: url('/images/lix/subsecciones_noactivo.png'); background-repeat: no-repeat;
+                           margin: 6px 0;}
+#sections > ul > li > ul > li.current a, #sections > ul > li > ul > li > a:hover {
+  background-image: url('/images/lix/subsecciones_activo.png');}
 
 /** actualidad **/
 a#link_eventos {background-position: 0 -20px;  height: 17px;}
@@ -249,7 +285,7 @@ a#link_portales {background-position: 0 -650px;  height: 17px;}
 a#link_congresos {background-position: 0 -686px;  height: 17px;}
 
 /** CONTENT **/
-#content {width: 526px; margin-left: 440px;}
+#content {width: 506px; margin-left: 460px;}
 
 .breadcrums span {
   display: block; float: left;
@@ -263,7 +299,12 @@ a#link_congresos {background-position: 0 -686px;  height: 17px;}
 .item-head {border-top: 2px dotted #333333; padding: 2px 0;}
 .item-head .name {float: left;}
 .item-head .date {float: right;}
+.item > h1 {text-transform: uppercase; font-weight: bold; padding: 1em 0 2px 0;
+  border-bottom: 2px dotted #333333; margin: 0 0 0.5em 0; font-size: 120%;}
 
+.item_pdfs {margin: -10px 0 20px 0; border: 1px solid #333333; padding: 3px 5px;}
+.item_pdfs a {color: #333333; display: block; text-align: right; text-decoration: none; }
+.item_pdfs a:hover {font-weight: bold; text-decoration: underline;}
 
 /** FOOTER **/
 #footer {margin: 50px 0 10px 0;}

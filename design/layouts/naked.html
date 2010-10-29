@@ -35,9 +35,16 @@
       <div id="main" class="container">
         <div id="site">
           <div id="news">
-            <a id="news-link" class="sprite">Novedades</a>
-            <div id="news_preview">
-              <div id="news">
+            <a href="/novedades" id="news-link" class="sprite">Novedades</a>
+            <div id="display">
+              <div id="news_box">
+                <div id="news_content">&nbsp;
+                </div>
+                <a id="news_more" href="#">Leer más &gt;&gt;&gt;</a>
+              </div>
+              <div id="news_controls" class="container">
+                <a id="news_prev" href="javascript:void(0);">Noticia anterior</a>
+                <a id="news_next" href="javascript:void(0);">Noticia siguiente</a>
               </div>
             </div>
           </div>
@@ -81,6 +88,13 @@
                       <r:content part="Contenido" />
                     </div>
                   </div>
+                  <r:if_assets extensions="pdf">
+                    <div class="item_pdfs">
+                      <r:assets:each extensions="pdf">
+                        <a href="<r:url />">Descargar pdf &gt;&gt;&gt;</a>
+                      </r:assets:each>
+                    </div>
+                  </r:if_assets>
                 </r:children:each>
               </r:page>
             </div>
