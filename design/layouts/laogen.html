@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <title><r:title /></title>
+    <meta name="description" content="Laboratorio observatorio Andaluz de condiciones de trabajo desde una perspectiva de género" />
+    <meta name="author" content="Laboratorio Observatorio Andaluz Género" />
+    <meta name="keywords" content="Genero Trabajo" />
+
+    <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/laogen.css">
+  </head>
+
+  <body>
+
+    <div id="container">
+      <div id="header">
+        <div class="dotted_yellow"></div>
+        <div class="container">
+          <a id="laogen" href="/"><img id="logo" src="/images/lix/logo.png" alt="logo" width="426" height="83" /></a>
+          <r:nav root="/info" ids_for_links="true" depth="1" ids_for_lis="true" />
+        </div>
+        <div class="dotted_yellow"></div>
+      </div>
+
+      <div id="main" class="container">
+        <div id="site">
+          <div id="news">
+            <r:if_url matches="/novedades">
+              <a href="/novedades" id="news_link" class="sprite active">Novedades</a>
+            </r:if_url>
+            <r:unless_url matches="/novedades">
+              <a href="/novedades" id="news_link" class="sprite">Novedades</a>
+              <div id="display">
+                <div id="news_box">
+                  <div id="news_display">
+                    <ul id="news_content">
+                      <r:find url="/novedades">
+                        <r:children:each order="desc">
+                          <li>
+                            <span class="date"><r:content part="Fecha" /></span>
+                            <h1><a href="<r:slug />"><r:title /></a></h1>
+                          </li>
+                        </r:children:each>
+                      </r:find>
+                    </ul>
+                  </div>
+                  <a id="news_more" href="/novedades">Leer más &gt;&gt;&gt;</a>
+                </div>
+                <div id="news_controls" class="container">
+                  <a id="news_prev" href="javascript:void(0);">Noticia anterior</a>
+                  <a id="news_next" href="javascript:void(0);">Noticia siguiente</a>
+                </div>
+              </div>
+            </r:unless_url>
+          </div>
+
+          <div id="sections" class="sections <r:if_content part="Entrada">entrada</r:if_content>">
+            <r:nav root="/" ids_for_links="true" depth="2" ids_for_lis="true" />
+          </div>
+        </div>
+
+        <div id="content">
+          <!-- entrada -->
+          <r:if_content part="Entrada">
+            <img id="circulos" alt="Laogen - Laboratorio Observatorio Andaluz de Condiciones de Trabajo desde una perspectiva de Género"
+                 src="/images/lix/circulos_todos_lineas.png" width="526" height="461"/>
+          </r:if_content>
+
+          <!-- sección: círculos -->
+          <r:if_content part="Seccion">
+            <img id="circulos" alt="Laogen - Laboratorio Observatorio Andaluz de Condiciones de Trabajo desde una perspectiva de Género"
+                 src="/images/lix/circulos_<r:slug/>_linea.png" width="526" height="461"/>
+          </r:if_content>
+
+          <!-- contenido: un sólo item -->
+          <r:if_content part="Contenido">
+            <div class="outside_label container">
+              <span><r:parent><r:title /></r:parent> &gt; <r:title /></span>
+            </div>
+            <div class="item">
+              <div class="item-bar">&nbsp;</div>
+              <div class="item-head container">
+                <r:if_content part="Tipo">
+                  <span class="name"><r:content part="Tipo" /></span>
+                </r:if_content>
+                <r:if_content part="Autorxs">
+                  <span class="name"><r:content part="Autorxs" /></span>
+                </r:if_content>
+                <span class="date"><r:content part="Fecha" /></span>
+              </div>
+              <!--<h1><r:title /></h1>-->
+              <div class="item-content">
+                <br/>
+                <r:content part="Contenido" />
+              </div>
+            </div>
+            <r:if_content part="Enlace">
+              <div class="item_pdfs">
+                <a href="<r:content part="Enlace" />">Más información &gt;&gt;&gt;</a>
+              </div>
+            </r:if_content>
+            <r:if_assets extensions="pdf">
+              <div class="item_pdfs">
+                <r:assets:each extensions="pdf">
+                  <a href="<r:url />">Descargar pdf &gt;&gt;&gt;</a>
+                </r:assets:each>
+              </div>
+            </r:if_assets>
+          </r:if_content>
+
+          <!-- info: con la cosa fuera -->
+          <r:if_content part="Info">
+            <div class="info">
+              <div class="outside_label container">
+                <span><r:title /></span>
+              </div>
+              <div class="item">
+                <r:content part="Info" />
+              </div>
+            </div>
+          </r:if_content>
+
+          <!-- lista -->
+          <r:if_content part="Lista">
+            <div class="outside_label container">
+              <span><r:parent><r:if_content part="Seccion"><r:title /> > </r:if_content></r:parent><r:title /></span>
+            </div>
+            <div class="content list-<r:slug />">
+              <r:page>
+                <r:children:each>
+                  <div class="item">
+                    <div class="item-bar">&nbsp;</div>
+                    <div class="item-head container">
+                      <r:if_content part="Tipo">
+                        <span class="name"><r:content part="Tipo" /></span>
+                      </r:if_content>
+                      <r:if_content part="Autorxs">
+                        <span class="name"><r:content part="Autorxs" /></span>
+                      </r:if_content>
+                      <span class="date"><r:content part="Fecha" /></span>
+                    </div>
+                    <h1><r:title /></h1>
+                    <div class="item-content">
+                      <r:content part="Contenido" />
+                    </div>
+                    <r:unless_content part="Contenido">
+                      <br/>
+                    </r:unless_content>
+                  </div>
+                  <r:if_content part="Enlace">
+                    <div class="item_pdfs">
+                      <a href="<r:content part="Enlace" />">Más información &gt;&gt;&gt;</a>
+                    </div>
+                  </r:if_content>
+                  <r:if_assets extensions="pdf">
+                    <div class="item_pdfs">
+                      <r:assets:each extensions="pdf">
+                        <a href="<r:url />">Descargar pdf &gt;&gt;&gt;</a>
+                      </r:assets:each>
+                    </div>
+                  </r:if_assets>
+                </r:children:each>
+              </r:page>
+            </div>
+          </r:if_content>
+        </div>
+      </div>
+
+      <div id="footer">
+        <div class="dotted_yellow"></div>
+        <img id="partners" src="/images/lix/entidades.png" alt="Entidades colaboradoras" width="962" height="75" />
+        <div class="dotted_yellow"></div>
+
+      </div>
+    </div> <!--! end of #container -->
+
+
+    <!-- Javascript at the bottom for fast page loading -->
+
+    <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+    <script type="text/javascript">!window.jQuery && document.write(unescape('%3Cscript src="/js/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
+    <!-- script type="text/javascript" src="http://cdn.jquerytools.org/1.2.5/tiny/jquery.tools.min.js"></script -->
+    <script type="text/javascript" src="/js/plugins.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+  </body>
+</html>

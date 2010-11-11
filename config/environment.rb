@@ -87,5 +87,18 @@ Radiant::Initializer.run do |config|
     ActiveSupport::Inflector.inflections do |inflect|
       inflect.uncountable 'config'
     end
+
+    ActionMailer::Base.delivery_method = :smtp
+    ActionMailer::Base.raise_delivery_errors = true
+    ActionMailer::Base.smtp_settings = {
+      :tls => true,
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :domain => "laogen.es",
+      :authentication => :plain,
+      :user_name => "laogen.es@gmail.com",
+      :password => "8demarzo"
+    }
+
   end
 end
