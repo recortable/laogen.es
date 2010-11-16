@@ -6,5 +6,6 @@ log
 content
 contenido
 public/assets/**
+public/radiant-cache/**
 
 
