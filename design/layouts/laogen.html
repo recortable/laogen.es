@@ -45,10 +45,10 @@
                   <div id="news_display">
                     <ul id="news_content">
                       <r:find url="/novedades">
-                        <r:children:each order="desc">
+                        <r:children:each order="asc">
                           <li>
                             <span class="date"><r:content part="Fecha" /></span>
-                            <h1><a href="<r:slug />"><r:title /></a></h1>
+                            <h1><a href="<r:url />"><r:title /></a></h1>
                           </li>
                         </r:children:each>
                       </r:find>
@@ -177,6 +177,7 @@
       </div>
 
       <div id="footer">
+        <div class="address">Laboratorio Observatorio Andaluz de Condiciones de Trabajo desde una Perspectiva de Género.<br/>Facultad de Ciencias del Trabajo. Adarve, 30. 14071 Córdoba. Tfno.:957211087</div>
         <div class="dotted_yellow"></div>
         <img id="partners" src="/images/lix/entidades.png" alt="Entidades colaboradoras" width="962" height="75" />
         <div class="dotted_yellow"></div>
