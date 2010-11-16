@@ -28,3 +28,6 @@
 [submodule "vendor/extensions/database_mailer"]
 	path = vendor/extensions/database_mailer
 	url = git@github.com:danigb/radiant-database-mailer-extension.git
+[submodule "vendor/extensions/static_caching"]
+	path = vendor/extensions/static_caching
+	url = git://github.com/tricycle/radiant-static-caching-extension.git
