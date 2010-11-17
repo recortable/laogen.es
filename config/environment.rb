@@ -8,11 +8,13 @@
 require File.join(File.dirname(__FILE__), 'boot')
 
 require 'radius'
+#require "smtp_tls"
   
 Radiant::Initializer.run do |config|
   # Skip frameworks you're not going to use (only works if using vendor/rails).
   # To use Rails without a database, you must remove the Active Record framework
   #config.frameworks -= [ :action_mailer ]
+  config.frameworks -= [ ]
   
   DATABASE_MAILER_COLUMNS = {
     :name => :string,
@@ -97,7 +99,8 @@ Radiant::Initializer.run do |config|
       :domain => "laogen.es",
       :authentication => :plain,
       :user_name => "laogen.es@gmail.com",
-      :password => "8demarzo"
+      :password => "8demarzo",
+      :enable_starttls_auto => true
     }
 
   end
