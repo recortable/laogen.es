@@ -19,6 +19,7 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.0.0)
     capistrano-deepmodules (0.2)
+    fastercsv (1.5.4)
     highline (1.6.1)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -44,6 +45,9 @@ GEM
       activesupport (= 2.3.8)
       rake (>= 0.8.3)
     rake (0.8.7)
+    ruby-ole (1.2.11.1)
+    spreadsheet (0.6.5.1)
+      ruby-ole (>= 1.0)
     will_paginate (2.3.15)
 
 PLATFORMS
@@ -52,8 +56,10 @@ PLATFORMS
 DEPENDENCIES
   capistrano
   capistrano-deepmodules
+  fastercsv
   nokogiri
   rack (~> 1.1)
   rack-test
   radiant (= 0.9.1)
   rails (= 2.3.8)
+  spreadsheet

@@ -6,4 +6,5 @@ gem "radiant", "0.9.1"
 gem "capistrano"
 gem "capistrano-deepmodules"
 gem "rack-test"
-
+gem "fastercsv"
+gem "spreadsheet"

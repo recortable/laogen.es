@@ -31,3 +31,6 @@
 [submodule "vendor/extensions/static_caching"]
 	path = vendor/extensions/static_caching
 	url = git://github.com/tricycle/radiant-static-caching-extension.git
+[submodule "vendor/extensions/simple_password"]
+	path = vendor/extensions/simple_password
+	url = git://github.com/yoon/radiant-simple-password-extension.git
